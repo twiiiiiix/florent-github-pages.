@@ -11,32 +11,68 @@
             color: #fff;
             margin: 0;
             padding: 0;
-        }
-
-        .portfolio {
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        /* Page d'introduction */
-        .intro {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin: 50px 0;
         }
 
+        /* Menu de navigation à gauche */
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            padding: 30px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .sidebar h1 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #fff;
+        }
+
+        /* Section de contenu principal */
+        .content {
+            margin-left: 270px; /* espace pour le menu */
+            padding: 50px;
+            width: calc(100% - 270px);
+        }
+
+        .intro, .message, .big-title {
+            margin-bottom: 50px;
+        }
+
+        /* Introduction */
         .intro h1 {
             font-size: 3rem;
-            margin: 0;
             color: #fff;
         }
 
         .intro h2 {
             font-size: 1.5rem;
-            margin-top: 10px;
             color: #ccc;
+            margin-top: 10px;
         }
 
         .intro p {
@@ -44,51 +80,11 @@
             color: #bbb;
         }
 
-        .contact-info p {
-            margin: 5px 0;
-            color: #bbb;
-        }
-
-        /* Section de projets */
-        .content {
-            margin-top: 50px;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            justify-items: center;
-        }
-
-        .project {
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            width: 250px;
-            text-align: center;
-        }
-
-        .project img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .project p {
-            margin-top: 10px;
-            color: #ccc;
-        }
-
         /* Message de bienvenue */
-        .message {
-            margin: 50px 0;
-            text-align: center;
-        }
-
         .message h3 {
             font-size: 2rem;
             color: #fff;
+            margin-bottom: 20px;
         }
 
         .message p {
@@ -98,15 +94,12 @@
             margin: 20px auto;
         }
 
-        /* Grand titre section */
-        .big-title {
-            margin: 50px 0;
-        }
-
+        /* Section Grand titre */
         .big-title h2 {
             text-align: center;
             font-size: 2rem;
             color: #fff;
+            margin-bottom: 20px;
         }
 
         .big-title p {
@@ -116,14 +109,6 @@
             margin: 20px auto;
         }
 
-        .big-title .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            justify-items: center;
-        }
-
-        /* Footer */
         .footer {
             text-align: center;
             margin: 40px 0;
@@ -137,12 +122,25 @@
 </head>
 <body>
 
-    <div class="portfolio">
-        <!-- Page d'introduction -->
-        <section class="intro">
+    <!-- Menu de navigation -->
+    <div class="sidebar">
+        <h1>Mon Portfolio</h1>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#message">Message</a></li>
+            <li><a href="#big-title">Grand Titre</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenu principal -->
+    <div class="content">
+        
+        <!-- Section Introduction -->
+        <section id="intro" class="intro">
             <h1>PORTFOLIO</h1>
             <h2>ARCHITECTURE ET INTÉRIEUR</h2>
-            <p>Découvrez mes projets de design et d'architecture.</p>
+            <p>Bienvenue dans mon portfolio, où vous pouvez découvrir mes projets dans le domaine de l'architecture et du design d'intérieur. N'hésitez pas à me contacter pour plus d'informations.</p>
             <div class="contact-info">
                 <p>Adresse: Votre adresse</p>
                 <p>Contact: votre.email@example.com</p>
@@ -150,39 +148,36 @@
             </div>
         </section>
 
-        <!-- Section de projets -->
-        <section class="content">
-            <div class="projects">
-                <div class="project">
-                    <img src="image1.jpg" alt="Projet 1">
-                    <p>Projet 1</p>
-                </div>
-                <div class="project">
-                    <img src="image2.jpg" alt="Projet 2">
-                    <p>Projet 2</p>
-                </div>
+        <!-- Section Projets -->
+        <section id="projects" class="projects">
+            <h2>Projets récents</h2>
+            <div class="project">
+                <h3>Projet 1</h3>
+                <p>Description du projet 1. Ce projet représente une belle fusion entre fonctionnalité et design moderne.</p>
+            </div>
+            <div class="project">
+                <h3>Projet 2</h3>
+                <p>Description du projet 2. Ce projet illustre mon approche innovante de l'architecture contemporaine.</p>
             </div>
         </section>
 
         <!-- Message de bienvenue -->
-        <section class="message">
+        <section id="message" class="message">
             <h3>Bienvenue sur mon portfolio</h3>
             <p>Ce portfolio présente une sélection de mes projets les plus récents dans le domaine de l'architecture et du design d'intérieur. N'hésitez pas à me contacter pour toute question ou collaboration future.</p>
         </section>
 
-        <!-- Grand titre section -->
-        <section class="big-title">
+        <!-- Section Grand Titre -->
+        <section id="big-title" class="big-title">
             <h2>Votre grand titre</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
-            <div class="projects">
-                <div class="project">
-                    <img src="image3.jpg" alt="Projet 3">
-                    <p>Projet 3</p>
-                </div>
-                <div class="project">
-                    <img src="image4.jpg" alt="Projet 4">
-                    <p>Projet 4</p>
-                </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Proin eget nulla eget nunc tempor ultricies et eget odio.</p>
+            <div class="project">
+                <h3>Projet 3</h3>
+                <p>Description du projet 3. Ce projet représente une autre étape dans l'évolution de mon style personnel et de ma vision de l'espace.</p>
+            </div>
+            <div class="project">
+                <h3>Projet 4</h3>
+                <p>Description du projet 4. Un projet innovant qui illustre ma capacité à intégrer des éléments classiques avec des solutions modernes.</p>
             </div>
         </section>
 
