@@ -3,37 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Principal Effrayant</title>
+    <title>Page d'index</title>
     <style>
         /* Style global */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #fff;
+            background-color: #f4f4f4;
+            color: #333;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
         }
 
         h1 {
-            font-size: 4rem;
-            color: #FF3A3A;
+            font-size: 3rem;
+            color: #444;
             margin-bottom: 20px;
-            text-shadow: 0 0 20px #FF0000;
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Animation du titre */
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
         }
 
         .menu-container {
@@ -42,101 +32,92 @@
             gap: 15px;
         }
 
-        /* Style des boutons du menu */
+        /* Boutons sérieux */
         .menu-btn {
-            background-color: #FF3A3A;
+            background-color: #007BFF;
             border: none;
             color: white;
-            font-size: 1.5rem;
-            padding: 15px 30px;
+            font-size: 1.2rem;
+            padding: 12px 25px;
             border-radius: 8px;
-            width: 250px;
+            width: 220px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .menu-btn:hover {
-            background-color: #ff0000;
+            background-color: #0056b3;
             transform: scale(1.05);
         }
 
+        /* Screamers cachés */
         .screamer {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 0;
             height: 0;
-            background-color: red;
-            border-radius: 50%;
-            animation: scream 3s ease-in-out infinite;
-            display: none;
-        }
-
-        @keyframes scream {
-            0% { width: 0; height: 0; }
-            50% { width: 300px; height: 300px; }
-            100% { width: 0; height: 0; }
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
         }
 
         .screamer img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
+            width: 600px;
+            height: 400px;
+            display: block;
         }
 
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            color: #FF3A3A;
-            font-size: 1.2rem;
-            animation: footerAnimation 2s infinite;
-        }
-
-        @keyframes footerAnimation {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
+        /* Apparition soudaine */
+        .screamer.active {
+            width: auto;
+            height: auto;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <h1>Menu Principal Effrayant</h1>
+    <h1>Page d'index</h1>
 
     <div class="menu-container">
-        <button class="menu-btn" onclick="triggerScreamer(1)">Screamer 1</button>
-        <button class="menu-btn" onclick="triggerScreamer(2)">Screamer 2</button>
-        <button class="menu-btn" onclick="triggerScreamer(3)">Screamer 3</button>
+        <button class="menu-btn" onclick="triggerScreamer(1)">Cliquez ici</button>
+        <button class="menu-btn" onclick="triggerScreamer(2)">Cliquez ici</button>
+        <button class="menu-btn" onclick="triggerScreamer(3)">Cliquez ici</button>
     </div>
 
+    <!-- Screamers (invisibles au départ) -->
     <div id="screamer1" class="screamer">
-        <img src="https://placeimg.com/400/400/creepy" alt="Screamer 1">
+        <img src="https://placeimg.com/600/400/creepy" alt="Screamer 1">
     </div>
 
     <div id="screamer2" class="screamer">
-        <img src="https://placeimg.com/400/400/creepy" alt="Screamer 2">
+        <img src="https://placeimg.com/600/400/horror" alt="Screamer 2">
     </div>
 
     <div id="screamer3" class="screamer">
-        <img src="https://placeimg.com/400/400/creepy" alt="Screamer 3">
+        <img src="https://placeimg.com/600/400/nightmare" alt="Screamer 3">
     </div>
 
-    <div class="footer">
-        <p>Osez cliquer... mais n'oubliez pas, vous êtes prévenu.</p>
-    </div>
+    <!-- Son effrayant -->
+    <audio id="screamSound" src="https://www.fesliyanstudios.com/play-mp3/4381" preload="auto"></audio>
 
     <script>
-        // Fonction pour activer le screamer
         function triggerScreamer(screamerId) {
-            const screamer = document.getElementById(`screamer${screamerId}`);
-            screamer.style.display = 'block';  // Affiche le screamer
-
-            // Masque le screamer après 3 secondes
+            // Ajoute un léger délai avant l'affichage pour tromper l'utilisateur
             setTimeout(() => {
-                screamer.style.display = 'none';
-            }, 3000);
+                const screamer = document.getElementById(`screamer${screamerId}`);
+                const sound = document.getElementById('screamSound');
+
+                screamer.classList.add('active'); // Affiche le screamer
+                sound.play(); // Joue un son de scream
+
+                // Cache le screamer après 3 secondes
+                setTimeout(() => {
+                    screamer.classList.remove('active');
+                }, 3000);
+            }, Math.random() * 2000 + 1000); // Délai aléatoire entre 1 et 3 secondes pour désorienter l'utilisateur
         }
     </script>
 
