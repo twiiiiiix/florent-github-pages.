@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple GitHub Pages</title>
+    <title>Attention!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: #111;
+            padding: 50px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #ff0000;
+        }
+        p {
+            color: #ccc;
+        }
+        #screamer {
+            display: none;
+        }
+    </style>
+    <script>
+        function playScreamer() {
+            document.getElementById('screamer').style.display = 'block';
+            var audio = new Audio('screamer.mp3');
+            audio.play();
+        }
+        window.onload = function() {
+            setTimeout(playScreamer, 5000); // 5 secondes avant le screamer
+        }
+    </script>
 </head>
 <body>
-    <h1>Bienvenue sur mon site GitHub Pages!</h1>
-    <p>Ceci est un site web simple déployé via GitHub Actions.</p>
+    <div class="container">
+        <h1>Attention!</h1>
+        <p>Cette page contient un screamer. Vous avez 5 secondes pour vous préparer.</p>
+        <img id="screamer" src="screamer.jpg" alt="Screamer">
+    </div>
 </body>
 </html>
