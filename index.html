@@ -3,35 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Effrayante</title>
+    <title>Menu Principal Effrayant</title>
     <style>
+        /* Style global */
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
             background-color: #121212;
             color: #fff;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
-        .header {
-            font-size: 3rem;
+        h1 {
+            font-size: 4rem;
             color: #FF3A3A;
-            margin-top: 50px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #FF0000;
             animation: pulse 1.5s infinite;
         }
 
+        /* Animation du titre */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
 
-        .content {
-            margin: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Style des boutons du menu */
+        .menu-btn {
+            background-color: #FF3A3A;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border-radius: 8px;
+            width: 250px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-btn:hover {
+            background-color: #ff0000;
+            transform: scale(1.05);
         }
 
         .screamer {
@@ -44,6 +71,7 @@
             background-color: red;
             border-radius: 50%;
             animation: scream 3s ease-in-out infinite;
+            display: none;
         }
 
         @keyframes scream {
@@ -58,63 +86,59 @@
             border-radius: 50%;
         }
 
-        .screamer.hidden {
-            display: none;
-        }
-
         .footer {
-            margin-top: 100px;
+            position: absolute;
+            bottom: 20px;
             color: #FF3A3A;
-            font-size: 1.5rem;
-        }
-
-        .button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #FF3A3A;
-            border: none;
-            color: white;
             font-size: 1.2rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            animation: footerAnimation 2s infinite;
         }
 
-        .button:hover {
-            background-color: #ff0000;
+        @keyframes footerAnimation {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="header">Bienvenue dans le Monde Effrayant!</div>
 
-    <div class="content">
-        <p>Vous n'êtes pas seul ici. Prenez garde!</p>
-        <button class="button" onclick="showScreamer()">Cliquez pour réveiller un Screamer!</button>
+    <h1>Menu Principal Effrayant</h1>
+
+    <div class="menu-container">
+        <button class="menu-btn" onclick="triggerScreamer(1)">Screamer 1</button>
+        <button class="menu-btn" onclick="triggerScreamer(2)">Screamer 2</button>
+        <button class="menu-btn" onclick="triggerScreamer(3)">Screamer 3</button>
     </div>
 
-    <div id="screamer1" class="screamer hidden">
-        <img src="https://placeimg.com/400/400/creepy" alt="Screamer">
+    <div id="screamer1" class="screamer">
+        <img src="https://placeimg.com/400/400/creepy" alt="Screamer 1">
     </div>
 
-    <div id="screamer2" class="screamer hidden">
-        <img src="https://placeimg.com/400/400/creepy" alt="Screamer">
+    <div id="screamer2" class="screamer">
+        <img src="https://placeimg.com/400/400/creepy" alt="Screamer 2">
+    </div>
+
+    <div id="screamer3" class="screamer">
+        <img src="https://placeimg.com/400/400/creepy" alt="Screamer 3">
     </div>
 
     <div class="footer">
-        <p>Oserez-vous explorer davantage?</p>
+        <p>Osez cliquer... mais n'oubliez pas, vous êtes prévenu.</p>
     </div>
 
     <script>
-        function showScreamer() {
-            let screamers = document.querySelectorAll('.screamer');
-            screamers.forEach(screamer => {
-                screamer.classList.remove('hidden');
-                setTimeout(() => {
-                    screamer.classList.add('hidden');
-                }, 3000); // Cache les screamers après 3 secondes
-            });
+        // Fonction pour activer le screamer
+        function triggerScreamer(screamerId) {
+            const screamer = document.getElementById(`screamer${screamerId}`);
+            screamer.style.display = 'block';  // Affiche le screamer
+
+            // Masque le screamer après 3 secondes
+            setTimeout(() => {
+                screamer.style.display = 'none';
+            }, 3000);
         }
     </script>
+
 </body>
 </html>
