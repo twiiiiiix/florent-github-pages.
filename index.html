@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
     <style>
-        /* Style global */
+        /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #333;
+            background-color: #121212;
             color: #fff;
             text-align: center;
             display: flex;
@@ -18,17 +18,19 @@
             justify-content: flex-start;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
-            background-image: url('https://placeimg.com/1920/1080/tech');
-            background-size: cover;
-            background-position: center;
         }
 
         h1 {
             font-size: 3.5rem;
-            color: #ffffff;
+            color: #fff;
             margin-top: 50px;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        .header {
+            background-color: #222;
+            width: 100%;
+            padding: 50px 0;
         }
 
         .menu-container {
@@ -38,11 +40,11 @@
             margin-top: 50px;
         }
 
-        /* Boutons de menu */
+        /* Buttons */
         .menu-btn {
             background-color: #61dafb;
             border: none;
-            color: #333;
+            color: #121212;
             font-size: 1.5rem;
             padding: 15px 30px;
             border-radius: 10px;
@@ -60,129 +62,98 @@
             outline: none;
         }
 
-        /* Articles défilants */
-        .article-container {
+        /* Content Section */
+        .content {
+            padding: 50px 20px;
             width: 80%;
             max-width: 1200px;
             margin-top: 50px;
-            overflow: hidden;
-            height: 300px;
-            position: relative;
+            background-color: #222;
+            border-radius: 15px;
         }
 
-        .article {
+        .content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .project-gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .project {
             background-color: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 20px;
-            height: 100%;
-            animation: scroll-up 15s linear infinite;
+            width: 30%;
         }
 
-        @keyframes scroll-up {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-100%); }
-        }
-
-        .screamer {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out, width 0.3s, height 0.3s;
-        }
-
-        .screamer img {
-            width: 600px;
-            height: 400px;
-            display: block;
-        }
-
-        .screamer.active {
-            width: auto;
+        .project img {
+            width: 100%;
             height: auto;
-            opacity: 1;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         .footer {
             position: absolute;
-            bottom: 30px;
+            bottom: 20px;
             color: #61dafb;
             font-size: 1rem;
-            animation: footerAnimation 2s infinite;
-        }
-
-        @keyframes footerAnimation {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Mon Portfolio</h1>
-
-    <div class="menu-container">
-        <button class="menu-btn" onclick="triggerScreamer(1)">Voir Mes Projets</button>
-        <button class="menu-btn" onclick="triggerScreamer(2)">Mes Compétences</button>
-        <button class="menu-btn" onclick="triggerScreamer(3)">Contact</button>
-    </div>
-
-    <!-- Articles défilants -->
-    <div class="article-container">
-        <div class="article">
-            <h2>Projet 1: Développement d'un site web</h2>
-            <p>Création d'un site web responsive en utilisant HTML, CSS, et JavaScript.</p>
-        </div>
-        <div class="article">
-            <h2>Compétence 1: JavaScript</h2>
-            <p>Développement d'applications interactives avec JavaScript moderne.</p>
-        </div>
-        <div class="article">
-            <h2>Projet 2: Application mobile</h2>
-            <p>Développement d'une application mobile multiplateforme en React Native.</p>
+    <!-- Header Section -->
+    <div class="header">
+        <h1>Mon Portfolio</h1>
+        <div class="menu-container">
+            <button class="menu-btn" onclick="triggerScreamer(1)">Voir Mes Projets</button>
+            <button class="menu-btn" onclick="triggerScreamer(2)">Mes Compétences</button>
+            <button class="menu-btn" onclick="triggerScreamer(3)">Contact</button>
         </div>
     </div>
 
-    <!-- Screamers invisibles -->
-    <div id="screamer1" class="screamer">
-        <img src="https://placeimg.com/600/400/creepy" alt="Screamer 1">
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Bienvenue sur mon portfolio</h2>
+        <p>Voici une sélection de mes projets récents. J'aime créer des expériences utilisateur captivantes.</p>
+        
+        <div class="project-gallery">
+            <div class="project">
+                <img src="https://placeimg.com/500/300/tech" alt="Projet 1">
+                <h3>Projet 1</h3>
+                <p>Développement d'un site responsive avec HTML, CSS et JavaScript.</p>
+            </div>
+            <div class="project">
+                <img src="https://placeimg.com/500/300/architecture" alt="Projet 2">
+                <h3>Projet 2</h3>
+                <p>Création d'une application mobile avec React Native.</p>
+            </div>
+            <div class="project">
+                <img src="https://placeimg.com/500/300/nature" alt="Projet 3">
+                <h3>Projet 3</h3>
+                <p>Design d'une interface utilisateur avec Figma.</p>
+            </div>
+        </div>
     </div>
 
-    <div id="screamer2" class="screamer">
-        <img src="https://placeimg.com/600/400/horror" alt="Screamer 2">
-    </div>
-
-    <div id="screamer3" class="screamer">
-        <img src="https://placeimg.com/600/400/nightmare" alt="Screamer 3">
-    </div>
-
-    <!-- Son effrayant -->
-    <audio id="screamSound" src="https://www.fesliyanstudios.com/play-mp3/4381" preload="auto"></audio>
-
+    <!-- Footer Section -->
     <div class="footer">
-        <p>Merci de visiter mon portfolio. N'hésitez pas à me contacter!</p>
+        <p>Merci de visiter mon portfolio.</p>
     </div>
 
     <script>
         function triggerScreamer(screamerId) {
-            // Ajoute un léger délai avant l'affichage du screamer
-            setTimeout(() => {
-                const screamer = document.getElementById(`screamer${screamerId}`);
-                const sound = document.getElementById('screamSound');
-
-                screamer.classList.add('active'); // Affiche le screamer
-                sound.play(); // Joue le son effrayant
-
-                // Cache le screamer après 3 secondes
-                setTimeout(() => {
-                    screamer.classList.remove('active');
-                }, 3000);
-            }, Math.random() * 2000 + 1000); // Délai aléatoire entre 1 et 3 secondes
+            alert("Ce bouton déclenche un effet surprise! (Imaginez un screamer ici)");
         }
     </script>
 
