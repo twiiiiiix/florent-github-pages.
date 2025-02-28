@@ -5,157 +5,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Portfolio</title>
     <style>
-        /* Global Styles */
         body {
             font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
             margin: 0;
             padding: 0;
-            background-color: #121212;
-            color: #fff;
-            text-align: center;
+        }
+
+        .portfolio {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Page d'introduction */
+        .intro {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
-            height: 100vh;
+            text-align: center;
+            margin: 50px 0;
         }
 
-        h1 {
-            font-size: 3.5rem;
+        .intro h1 {
+            font-size: 3rem;
+            margin: 0;
             color: #fff;
-            margin-top: 50px;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
         }
 
-        .header {
-            background-color: #222;
-            width: 100%;
-            padding: 50px 0;
-        }
-
-        .menu-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        /* Buttons */
-        .menu-btn {
-            background-color: #61dafb;
-            border: none;
-            color: #121212;
+        .intro h2 {
             font-size: 1.5rem;
-            padding: 15px 30px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+            color: #ccc;
         }
 
-        .menu-btn:hover {
-            background-color: #21a1f1;
-            transform: scale(1.05);
+        .intro p {
+            margin-top: 20px;
+            color: #bbb;
         }
 
-        .menu-btn:focus {
-            outline: none;
+        .contact-info p {
+            margin: 5px 0;
+            color: #bbb;
         }
 
-        /* Content Section */
+        /* Section de projets */
         .content {
-            padding: 50px 20px;
-            width: 80%;
-            max-width: 1200px;
             margin-top: 50px;
-            background-color: #222;
-            border-radius: 15px;
         }
 
-        .content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .project-gallery {
-            display: flex;
-            justify-content: space-between;
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
+            justify-items: center;
         }
 
         .project {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #333;
             padding: 20px;
             border-radius: 10px;
-            width: 30%;
+            width: 250px;
+            text-align: center;
         }
 
         .project img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            border-radius: 5px;
         }
 
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            color: #61dafb;
+        .project p {
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        /* Message de bienvenue */
+        .message {
+            margin: 50px 0;
+            text-align: center;
+        }
+
+        .message h3 {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .message p {
             font-size: 1rem;
+            color: #ccc;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        /* Grand titre section */
+        .big-title {
+            margin: 50px 0;
+        }
+
+        .big-title h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #fff;
+        }
+
+        .big-title p {
+            text-align: center;
+            font-size: 1rem;
+            color: #ccc;
+            margin: 20px auto;
+        }
+
+        .big-title .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin: 40px 0;
+            color: #bbb;
+        }
+
+        .footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <div class="header">
-        <h1>Mon Portfolio</h1>
-        <div class="menu-container">
-            <button class="menu-btn" onclick="triggerScreamer(1)">Voir Mes Projets</button>
-            <button class="menu-btn" onclick="triggerScreamer(2)">Mes Compétences</button>
-            <button class="menu-btn" onclick="triggerScreamer(3)">Contact</button>
+    <div class="portfolio">
+        <!-- Page d'introduction -->
+        <section class="intro">
+            <h1>PORTFOLIO</h1>
+            <h2>ARCHITECTURE ET INTÉRIEUR</h2>
+            <p>Découvrez mes projets de design et d'architecture.</p>
+            <div class="contact-info">
+                <p>Adresse: Votre adresse</p>
+                <p>Contact: votre.email@example.com</p>
+                <p>Réseaux sociaux: @VotreHandle</p>
+            </div>
+        </section>
+
+        <!-- Section de projets -->
+        <section class="content">
+            <div class="projects">
+                <div class="project">
+                    <img src="image1.jpg" alt="Projet 1">
+                    <p>Projet 1</p>
+                </div>
+                <div class="project">
+                    <img src="image2.jpg" alt="Projet 2">
+                    <p>Projet 2</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message de bienvenue -->
+        <section class="message">
+            <h3>Bienvenue sur mon portfolio</h3>
+            <p>Ce portfolio présente une sélection de mes projets les plus récents dans le domaine de l'architecture et du design d'intérieur. N'hésitez pas à me contacter pour toute question ou collaboration future.</p>
+        </section>
+
+        <!-- Grand titre section -->
+        <section class="big-title">
+            <h2>Votre grand titre</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti.</p>
+            <div class="projects">
+                <div class="project">
+                    <img src="image3.jpg" alt="Projet 3">
+                    <p>Projet 3</p>
+                </div>
+                <div class="project">
+                    <img src="image4.jpg" alt="Projet 4">
+                    <p>Projet 4</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Mon Portfolio</p>
         </div>
     </div>
-
-    <!-- Content Section -->
-    <div class="content">
-        <h2>Bienvenue sur mon portfolio</h2>
-        <p>Voici une sélection de mes projets récents. J'aime créer des expériences utilisateur captivantes.</p>
-        
-        <div class="project-gallery">
-            <div class="project">
-                <img src="https://placeimg.com/500/300/tech" alt="Projet 1">
-                <h3>Projet 1</h3>
-                <p>Développement d'un site responsive avec HTML, CSS et JavaScript.</p>
-            </div>
-            <div class="project">
-                <img src="https://placeimg.com/500/300/architecture" alt="Projet 2">
-                <h3>Projet 2</h3>
-                <p>Création d'une application mobile avec React Native.</p>
-            </div>
-            <div class="project">
-                <img src="https://placeimg.com/500/300/nature" alt="Projet 3">
-                <h3>Projet 3</h3>
-                <p>Design d'une interface utilisateur avec Figma.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Section -->
-    <div class="footer">
-        <p>Merci de visiter mon portfolio.</p>
-    </div>
-
-    <script>
-        function triggerScreamer(screamerId) {
-            alert("Ce bouton déclenche un effet surprise! (Imaginez un screamer ici)");
-        }
-    </script>
 
 </body>
 </html>
