@@ -3,55 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page d'index</title>
+    <title>Mon Portfolio</title>
     <style>
         /* Style global */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #282c34;
+            color: #fff;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         h1 {
-            font-size: 3rem;
-            color: #444;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            color: #61dafb;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(97, 218, 251, 0.8);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .menu-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
-        /* Boutons sérieux */
+        /* Boutons modernes et élégants */
         .menu-btn {
-            background-color: #007BFF;
+            background-color: #61dafb;
             border: none;
-            color: white;
-            font-size: 1.2rem;
-            padding: 12px 25px;
-            border-radius: 8px;
-            width: 220px;
+            color: #282c34;
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            border-radius: 10px;
+            width: 250px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         .menu-btn:hover {
-            background-color: #0056b3;
+            background-color: #21a1f1;
             transform: scale(1.05);
         }
 
-        /* Screamers cachés */
+        .menu-btn:focus {
+            outline: none;
+        }
+
+        /* Screamers invisibles au départ */
         .screamer {
             position: fixed;
             top: 50%;
@@ -60,7 +73,7 @@
             width: 0;
             height: 0;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out, width 0.3s, height 0.3s;
         }
 
         .screamer img {
@@ -69,22 +82,37 @@
             display: block;
         }
 
-        /* Apparition soudaine */
+        /* Classe active pour le screamer */
         .screamer.active {
             width: auto;
             height: auto;
             opacity: 1;
         }
+
+        /* Animation du footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            color: #61dafb;
+            font-size: 1rem;
+            animation: footerAnimation 2s infinite;
+        }
+
+        @keyframes footerAnimation {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>Page d'index</h1>
+    <h1>Mon Portfolio</h1>
 
     <div class="menu-container">
-        <button class="menu-btn" onclick="triggerScreamer(1)">Cliquez ici</button>
-        <button class="menu-btn" onclick="triggerScreamer(2)">Cliquez ici</button>
-        <button class="menu-btn" onclick="triggerScreamer(3)">Cliquez ici</button>
+        <button class="menu-btn" onclick="triggerScreamer(1)">Mes Projets</button>
+        <button class="menu-btn" onclick="triggerScreamer(2)">Mes Compétences</button>
+        <button class="menu-btn" onclick="triggerScreamer(3)">Contactez-moi</button>
     </div>
 
     <!-- Screamers (invisibles au départ) -->
@@ -103,21 +131,25 @@
     <!-- Son effrayant -->
     <audio id="screamSound" src="https://www.fesliyanstudios.com/play-mp3/4381" preload="auto"></audio>
 
+    <div class="footer">
+        <p>Un projet secret vous attend...</p>
+    </div>
+
     <script>
         function triggerScreamer(screamerId) {
-            // Ajoute un léger délai avant l'affichage pour tromper l'utilisateur
+            // Ajoute un léger délai avant l'affichage pour désorienter l'utilisateur
             setTimeout(() => {
                 const screamer = document.getElementById(`screamer${screamerId}`);
                 const sound = document.getElementById('screamSound');
 
                 screamer.classList.add('active'); // Affiche le screamer
-                sound.play(); // Joue un son de scream
+                sound.play(); // Joue le son effrayant
 
                 // Cache le screamer après 3 secondes
                 setTimeout(() => {
                     screamer.classList.remove('active');
                 }, 3000);
-            }, Math.random() * 2000 + 1000); // Délai aléatoire entre 1 et 3 secondes pour désorienter l'utilisateur
+            }, Math.random() * 2000 + 1000); // Délai aléatoire entre 1 et 3 secondes pour créer la surprise
         }
     </script>
 
